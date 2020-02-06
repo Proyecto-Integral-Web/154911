@@ -1,8 +1,15 @@
 <template>
-  <div class="login">
-    <h1></h1>
-    <img alt="Vue logo" src="../assets/logo.png">
-    <LoginForm> </LoginForm>;
+  <div class="container">
+    <div class="pt-5">
+      <div class="p-3">
+        <div class="col-md-4">
+          <LoginForm></LoginForm>
+        </div>
+        <div class="col">
+
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
