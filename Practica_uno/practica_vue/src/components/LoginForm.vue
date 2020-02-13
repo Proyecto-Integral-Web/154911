@@ -1,40 +1,49 @@
 <template>
     <secction>
       <header>
-        <div class="logo"></div>
+
       </header>
       <section class="alinearIzq formulario">
         <img>
         <br>
         <div class="row top-buffer">
           <h1 class="col"><strong>Log in</strong></h1>
-          <a class="col">Sing Up</a>
+          <a class="logut">Sing up</a>
         </div>
 
         <div class="form-group">
           <div>
             <input
                 type="email"
-                class="form-control espacio"
+                class="cuadroTexto"
                 placeholder="example@email.com"
                 v-model="user.email"
             >
+
             <input
                 type="password"
-                class="form-control"
+                class="cuadroTexto"
                 placeholder="password"
                 v-model="user.password"
                 @keypress.enter="login"
             >
             {{user.password}}
             <br>
-            <a class="txt-olvidar"></a>
             <router-link
             to="/about"
             tag="p"
             >don't remember your password ?</router-link>
-            <br>
-            <button type="button" class="btn btn-success espacio" @click="login">Log in</button>
+            <button type="button" class="btn btn-success" @click="login">Log in</button>
+
+            <div>
+              <br>
+              <p class="textos">
+                Track Certificate expiration date
+                Check potential vulneravilities
+                Detect policy violation
+                  </p>
+            </div>
+
           </div>
         </div>
       </section>
@@ -79,7 +88,7 @@ export default {
 
 <style lang='scss'>
 html{
-  background-color:blue;
+  background-color: #F5F5FC;
 }
 .formulario{
   background-color: white;
@@ -92,7 +101,17 @@ html{
   margin-bottom: 50px;
   font-size: 15px;
 }
-.espacio{
-  margin-top: 20px;
+.textos{
+  width: 80%;
+}
+.cuadroTexto{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: none;
 }
 </style>
