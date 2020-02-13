@@ -1,63 +1,124 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-pwa" target="_blank" rel="noopener">pwa</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-router" target="_blank" rel="noopener">router</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-vuex" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-unit-jest" target="_blank" rel="noopener">unit-jest</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
-  </div>
+    <secction>
+      <header>
+
+      </header>
+      <section class="alinearIzq formulario">
+        <img>
+        <br>
+        <div class="row top-buffer">
+          <h2 class="col"><strong>Sing Up</strong></h2>
+          <router-link
+            to="/"
+            tag="a"
+            class="Registro"
+            >Login</router-link>
+        </div>
+
+        <div class="form-group">
+          <div>
+            <input
+            type="name"
+            class="cuadroTexto"
+            placeholder="Name"
+            v-model="user.name"
+            >
+            <input
+                type="email"
+                class="cuadroTexto"
+                placeholder="example@email.com"
+                v-model="user.email"
+            >
+            <input
+                type="email"
+                class="cuadroTexto"
+                placeholder="example@email.com"
+                v-model="user.email"
+            >
+
+            <input
+                type="password"
+                class="cuadroTexto"
+                placeholder="password"
+                v-model="user.password"
+                @keypress.enter="login"
+            >
+            <input
+                type="password"
+                class="cuadroTexto"
+                placeholder="password"
+                v-model="user.password"
+                @keypress.enter="login"
+            >
+            <br>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">I accept the security policies</label>
+</div>
+            <br>
+
+            <button type="button" class="btn btn-danger" @click="login">Sing Up</button>
+
+          </div>
+        </div>
+      </section>
+
+    </secction>
+
 </template>
 
-<script>
+<script lang='js'>
 export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
+  name: 'Sing Up',
+  data () {
+    return {
+      user: {
+        email: '',
+        password: ''
+      },
+      userEmail: '',
+      userPassword: ''
+    }
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-h3 {
-  margin: 40px 0 0;
+<style lang='scss'>
+html{
+  background-color: #F5F5FC;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+.formulario{
+  background-color: white;
+  margin-bottom: 2em;
+  margin-left: 3em;
+  margin-right: 2em;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
+.alinearIzq{
+  width: 300px;
+  text-align: start;
 }
-a {
-  color: #42b983;
+.txt-olvidar{
+  margin-bottom: 50px;
+  font-size: 15px;
 }
-
+.textos{
+  width: 80%;
+}
+.cuadroTexto{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: none;
+}
+.Registro{
+  width: 30%;
+  color: gray;
+  height:50% ;
+  text-align: left;
+  margin-top: 1em;
+}
 </style>

@@ -3,7 +3,7 @@
       <div class="row">
         <div class="col-4 cont2">
           <div class="logo">
-              <h1>KeyHub</h1>
+              <h1><strong>Keyhub</strong></h1>
           </div>
           <LoginForm class="col"></LoginForm>
         </div>

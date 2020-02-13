@@ -1,14 +1,15 @@
 <template>
     <secction>
-      <header>
-
-      </header>
-      <section class="alinearIzq formulario">
+      <div class="alinearIzq formulario">
         <img>
         <br>
         <div class="row top-buffer">
-          <h1 class="col"><strong>Log in</strong></h1>
-          <a class="logut">Sing up</a>
+          <h2 class="col"><strong>Log in</strong></h2>
+          <router-link
+            to="/about"
+            tag="a"
+            class="Registro"
+            >Sing Up</router-link>
         </div>
 
         <div class="form-group">
@@ -30,9 +31,10 @@
             {{user.password}}
             <br>
             <router-link
-            to="/about"
+            to="/home"
             tag="p"
             >don't remember your password ?</router-link>
+            <br>
             <button type="button" class="btn btn-success" @click="login">Log in</button>
 
             <div>
@@ -46,20 +48,22 @@
 
           </div>
         </div>
-      </section>
+      </div>
 
     </secction>
 
 </template>
 
 <script lang='js'>
+import Auth from '@/config/auth.js'
 export default {
   name: 'loginForm',
   data () {
     return {
       user: {
-        email: '',
-        password: ''
+        email: 'palta@gmail.com',
+        password: '123456',
+        nombre: 'Pepe'
       },
       userEmail: '',
       userPassword: ''
@@ -70,16 +74,16 @@ export default {
   created () {
   },
   mounted () {
-    console.log('estoy en mounthed')
-    console.log('estoy en')
+    console.log(this.user.nombre)
   },
   methods: {
     login () {
+      Auth.singUp(this.user)
       console.log(this.user.password)
       console.log(this.user.email)
       setTimeout(() => {
         // tiempo de espera y te manda a otra ruta.
-        this.$router.push({ name: 'about' })
+        this.$router.push({ name: 'home' })
       }, 1000)
     }
   }
@@ -92,6 +96,9 @@ html{
 }
 .formulario{
   background-color: white;
+  margin-bottom: 3em;
+  margin-left: 3em;
+  margin-right: 2em;
 }
 .alinearIzq{
   width: 300px;
@@ -113,5 +120,12 @@ html{
   border: 1px solid #ccc;
   border-radius: 4px;
   resize: none;
+}
+.Registro{
+  width: 50%;
+  color: gray;
+  height:50% ;
+  text-align: left;
+  margin-top: 1em;
 }
 </style>
