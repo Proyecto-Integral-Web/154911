@@ -4,16 +4,22 @@
         <img>
         <br>
         <div class="row top-buffer">
-          <h2 class="col"><strong>Log in</strong></h2>
+          <h2 class="col"><strong>Sing Up</strong></h2>
           <router-link
-            to="/SingUp"
+            to="/"
             tag="a"
             class="Registro"
-            >Sing Up</router-link>
+            >Log in</router-link>
         </div>
 
         <div class="form-group">
           <div>
+            <input
+                type="name"
+                class="cuadroTexto"
+                placeholder="Name"
+                v-model="user.name"
+            >
             <input
                 type="email"
                 class="cuadroTexto"
@@ -26,24 +32,18 @@
                 class="cuadroTexto"
                 placeholder="password"
                 v-model="user.password"
-                @keypress.enter="login"
+                @keypress.enter="singUp"
             >
-            {{user.password}}
-            <br>
-            <router-link
-            to="/home"
-            tag="p"
-            >don't remember your password ?</router-link>
-            <br>
-            <button type="button" class="btn btn-success" @click="login">Log in</button>
+
+            <button type="button" class="btn btn-danger" @click="SingUp">Sing Up</button>
 
             <div>
               <br>
-              <p class="textos">
-                Track Certificate expiration date
-                Check potential vulneravilities
-                Detect policy violation
-                  </p>
+              <router-link
+              to="/"
+              tag="a"
+              class="Registro"
+              >do you have an acount?</router-link>
             </div>
 
           </div>
@@ -57,16 +57,17 @@
 <script lang='js'>
 import Auth from '@/config/auth.js'
 export default {
-  name: 'loginForm',
+  name: 'sinUpForm',
   data () {
     return {
       user: {
-        email: 'palta@gmail.com',
-        password: '123456',
-        nombre: 'Pepe'
+        email: '',
+        password: '',
+        name: ''
       },
       userEmail: '',
-      userPassword: ''
+      userPassword: '',
+      userName: ''
     }
   },
   beforeCreate () {
@@ -77,14 +78,15 @@ export default {
     console.log(this.user.nombre)
   },
   methods: {
-    login () {
+    SingUp () {
       Auth.singUp(this.user)
       console.log(this.user.password)
       console.log(this.user.email)
+      console.log(this.user.name)
       setTimeout(() => {
         // tiempo de espera y te manda a otra ruta.
-        this.$router.push({ name: 'home' })
-      }, 1000)
+        this.$router.push({ name: '/' })
+      }, 500)
     }
   }
 }
