@@ -13,5 +13,8 @@ export default {
       console.table(err)
     })
     console.log(data)
+  },
+  login (data) {
+    console.log('este es el login')
   }
 }

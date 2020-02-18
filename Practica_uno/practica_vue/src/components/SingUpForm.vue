@@ -1,5 +1,5 @@
 <template>
-    <secction>
+    <section>
       <div class="alinearIzq formulario">
         <img>
         <br>
@@ -50,7 +50,7 @@
         </div>
       </div>
 
-    </secction>
+    </section>
 
 </template>
 
@@ -85,7 +85,7 @@ export default {
       console.log(this.user.name)
       setTimeout(() => {
         // tiempo de espera y te manda a otra ruta.
-        this.$router.push({ name: '/' })
+        this.$router.push({ name: 'Login' })
       }, 500)
     }
   }

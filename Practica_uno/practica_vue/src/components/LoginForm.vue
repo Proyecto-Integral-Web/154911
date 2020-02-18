@@ -1,5 +1,5 @@
 <template>
-    <secction>
+    <section>
       <div class="alinearIzq formulario">
         <img>
         <br>
@@ -50,7 +50,7 @@
         </div>
       </div>
 
-    </secction>
+    </section>
 
 </template>
 
@@ -61,9 +61,9 @@ export default {
   data () {
     return {
       user: {
-        email: 'palta@gmail.com',
-        password: '123456',
-        nombre: 'Pepe'
+        email: '',
+        password: '',
+        nombre: ''
       },
       userEmail: '',
       userPassword: ''
@@ -78,13 +78,18 @@ export default {
   },
   methods: {
     login () {
-      Auth.singUp(this.user)
+      var res = Auth.login(this.user)
+      if (res === 1) {
+        console.log('palta')
+      } else {
+        console.log('nel')
+      }
       console.log(this.user.password)
       console.log(this.user.email)
-      setTimeout(() => {
+      /* setTimeout(() => {
         // tiempo de espera y te manda a otra ruta.
         this.$router.push({ name: 'home' })
-      }, 1000)
+      }, 1000) */
     }
   }
 }
