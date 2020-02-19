@@ -1,13 +1,13 @@
 <template>
   <div class="container contenedor">
-      <div class="row">
-        <div class="col-4 cont2">
+      <div class="renglon">
+        <div class="cont2">
           <div class="logo">
               <h1><strong>Keyhub</strong></h1>
           </div>
           <LoginForm class="col"></LoginForm>
         </div>
-        <div class="col cont1">
+        <div class="cont1">
           <h2 class="contenido">Certificate Lifecycle Management On Autopilot
           </h2>
           <br>

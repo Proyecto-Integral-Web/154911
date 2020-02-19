@@ -99,8 +99,6 @@ html{
 .formulario{
   background-color: white;
   margin-bottom: 3em;
-  margin-left: 3em;
-  margin-right: 2em;
 }
 .alinearIzq{
   width: 300px;
@@ -130,4 +128,8 @@ html{
   text-align: left;
   margin-top: 1em;
 }
+@media screen {
+
+}
+
 </style>

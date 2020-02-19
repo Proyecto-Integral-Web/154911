@@ -1,13 +1,13 @@
 <template>
   <div class="container contenedor">
-      <div class="row">
-        <div class="col-4 cont2">
-          <div class="logo">
+      <div class="renglon">
+        <div class="cont2">
+          <div class="logo sing">
               <h1><strong>Keyhub</strong></h1>
           </div>
-          <SingUpForm class="col"></SingUpForm>
+          <SingUpForm class="col sing"></SingUpForm>
         </div>
-        <div class="col cont1">
+        <div class="cont1">
           <img class="imagen" src="../assets/imgRobot.jpg">
         </div>
       </div>
@@ -30,17 +30,9 @@ export default {
   .contenedor{
     background-color: white;
     margin-top: 7%;
+    min-width: 400px;
   }
-  .cont1{
-    height:1fr;
-    width: 75%;
-    background-color: #364FCC;
-    align-items: center;
-  }
-  .cont2{
-    width: 25%;
-    margin-bottom: 20px;
-  }
+
   .contenido{
     color: white;
     margin: auto;
@@ -65,4 +57,90 @@ export default {
     margin-top: 7vh;
     margin-bottom:8vh;
   }
+  .renglon{
+    display: grid;
+    grid-template-columns: 23vw 57vw;
+    min-width: 400px;
+
+  }
+  .cont1{
+    background-color: #364FCC;
+    align-items: center;
+    margin-left: 3vw;
+    min-width: 400px;
+  }
+  .cont2{
+    width: 2fr;
+    margin-bottom: 20px;
+    min-width: 400px;
+  }
+@media only screen and (max-width: 1600px) {
+    .renglon{
+    display: grid;
+    grid-template-columns: 30vw 50vw;
+
+  }
+  .cont1{
+    background-color: #364FCC;
+    align-items: center;
+    margin-left: 3vw;
+  }
+  .cont2{
+    width: 2fr;
+    margin-bottom: 20px;
+  }
+  }
+@media only screen and (max-width: 1400px) {
+    .renglon{
+    grid-template-columns: 80vw;
+    margin-left:5vw;
+    margin-right: 10vw;
+
+  }
+  .cont1{
+    background-color: #364FCC;
+    align-items: center;
+    margin-left: 3vw;
+  }
+  .cont2{
+    width: 2fr;
+    margin-bottom: 20px;
+  }
+  .contenedor{
+    background-color: white;
+    margin-top: 7%;
+    padding: 0;
+  }
+  .sing{
+    margin-left: 10vw;
+    text-align: center;
+  }
+  }
+  @media only screen and (max-width: 600px) {
+  .renglon{
+    width: 100%;
+    margin: 0;
+  }
+  .cont1{
+    align-items: center;
+    margin: 12vw;
+  }
+  .cont2{
+    width: 100%;
+    margin-bottom: 0;
+  }
+  .contenedor{
+    width: 100%;
+  }
+  .sing{
+    text-align: center;
+  }
+  .logo{
+    margin-top: 0;
+  }
+  }
+  .contenido .contenido2{
+    margin: 0;
+  }
+
 </style>
