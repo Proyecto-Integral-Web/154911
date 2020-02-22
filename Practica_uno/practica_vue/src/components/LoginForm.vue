@@ -78,12 +78,7 @@ export default {
   },
   methods: {
     login () {
-      var res = Auth.login(this.user)
-      if (res === 1) {
-        console.log('palta')
-      } else {
-        console.log('nel')
-      }
+      Auth.login(this.user)
       console.log(this.user.password)
       console.log(this.user.email)
       /* setTimeout(() => {
