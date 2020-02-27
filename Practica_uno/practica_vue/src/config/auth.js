@@ -6,6 +6,8 @@ import router from '@/router'
 export default {
   logOut () {
     fireApp.auth().signOut()
+
+    router.push({ name: 'Login' })
   },
   checkUser () {
     let user = fireApp.auth().currentUser
@@ -30,7 +32,7 @@ export default {
     fireApp.auth().signInWithEmailAndPassword(data.email, data.password).then(
       (result) => {
         console.log(result)
-        router.push({ name: 'about' })
+        router.push({ name: 'profile' })
       }).catch((err) => {
       console.log(err)
     })

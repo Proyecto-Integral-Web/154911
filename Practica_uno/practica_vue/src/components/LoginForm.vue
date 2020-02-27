@@ -26,6 +26,7 @@
                 class="cuadroTexto"
                 placeholder="password"
                 v-model="user.password"
+                @value="user.nombre"
                 @keypress.enter="login"
             >
             {{user.password}}
@@ -61,17 +62,14 @@ export default {
   data () {
     return {
       user: {
-        email: '',
-        password: '',
+        name: '',
+        email: 'paco@gmail.com',
+        password: '123456789',
         nombre: ''
       },
       userEmail: '',
       userPassword: ''
     }
-  },
-  beforeCreate () {
-  },
-  created () {
   },
   mounted () {
     console.log(this.user.nombre)

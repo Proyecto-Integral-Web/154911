@@ -11,11 +11,18 @@ Vue.config.productionTip = false
 router.beforeEach((to, from, next) => {
   if (to.meta.auth) {
     console.log('No eres vienvendo aqui largo simple mortal')
-    if (Auth.checkUser()) {
+
+    let user = Auth.checkUser()
+    console.log(user)
+    if (user == null) {
+      next({ name: 'Login' })
+    }
+    /* if (Auth.checkUser()) {
       next()
       return
-    }
-    router.push({ name: 'Login' })
+    } */
+    console.log('usuario logeado: ' + user.email)
+    next()
   }
   next()
 })
