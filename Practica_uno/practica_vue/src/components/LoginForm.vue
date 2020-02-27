@@ -14,6 +14,7 @@
 
         <div class="form-group">
           <div>
+            <div class="alert alert-danger" role="alert"></div>
             <input
                 type="email"
                 class="cuadroTexto"
@@ -29,7 +30,6 @@
                 @value="user.nombre"
                 @keypress.enter="login"
             >
-            {{user.password}}
             <br>
             <router-link
             to="/home"
@@ -76,9 +76,11 @@ export default {
   },
   methods: {
     login () {
-      Auth.login(this.user)
-      console.log(this.user.password)
-      console.log(this.user.email)
+      Auth.login(this.user).catch(error => {
+        console.log('estamos en el login')
+        console.log('esto es un error:' + error.code + error.message)
+      }
+      )
       /* setTimeout(() => {
         // tiempo de espera y te manda a otra ruta.
         this.$router.push({ name: 'home' })

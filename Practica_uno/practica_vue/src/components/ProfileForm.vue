@@ -35,7 +35,13 @@
         readonly
       ></code>
     </div>
+    <button
+    type="button"
+    class="btn btn-danger boton"
+    @click="logOut"
+    >Cerrar Sesion</button>
     </section>
+
     </div>
   </div>
 </template>
@@ -104,6 +110,9 @@ export default {
     margin: auto;
   }
   .datos{
+    margin-top: 5vh;
+  }
+  .boton{
     margin-top: 5vh;
   }
 </style>

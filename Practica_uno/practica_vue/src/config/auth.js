@@ -19,22 +19,23 @@ export default {
   singUp (data) {
     if (data.nombre === '' || data.email === '' || data.password === '') { return alert('todos los datos son obligatorio,') }
     fireApp.auth().createUserWithEmailAndPassword(data.email, data.password).then((result) => {
-      let newUser = {}
-      newUser.displayName = data.nombre
+      let newUser = {
+        displayName: result.data.nombre,
+        email: result.data.email,
+        uid: result.data.id
+      }
       fireApp.auth().updateCurrentUser(newUser).catch(err => console.log(err))
     }).catch((err) => {
       console.table(err)
     })
     console.log(data)
   },
-  login (data) {
-    console.log('este es el login')
-    fireApp.auth().signInWithEmailAndPassword(data.email, data.password).then(
-      (result) => {
-        console.log(result)
-        router.push({ name: 'profile' })
-      }).catch((err) => {
-      console.log(err)
+  async login (data) {
+    await fireApp.auth().signInWithEmailAndPassword(data.email, data.password).then((result) => {
+      // console.log(result)
+      router.push({ name: 'profile' })
+    }).catch((err) => {
+      return Promise.reject(err)
     })
   }
 }

@@ -50,7 +50,6 @@ export default {
     font-size: 2.5em;
     width: 40%;
     text-align: left;
-    margin-top: 20%;
     font-weight: bold;
   }
   .logo{

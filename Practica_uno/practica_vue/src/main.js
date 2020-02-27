@@ -10,13 +10,13 @@ import 'bootstrap/scss/bootstrap.scss'
 Vue.config.productionTip = false
 router.beforeEach((to, from, next) => {
   if (to.meta.auth) {
-    console.log('No eres vienvendo aqui largo simple mortal')
-
     let user = Auth.checkUser()
     console.log(user)
     if (user == null) {
       next({ name: 'Login' })
+      console.log('error en alguno de los')
     }
+
     /* if (Auth.checkUser()) {
       next()
       return
