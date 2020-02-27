@@ -63,7 +63,8 @@ export default {
       user: {
         email: '',
         password: '',
-        name: ''
+        name: '',
+        telefono: ''
       },
       userEmail: '',
       userPassword: '',

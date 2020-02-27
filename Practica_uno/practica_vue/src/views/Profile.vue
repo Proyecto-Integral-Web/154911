@@ -1,6 +1,6 @@
 <template>
     <div>
-      <h1>Aqui es el perfil</h1>
+      <h1><code class="txt">Perfil</code></h1>
       <ProfileForm></ProfileForm>
     </div>
 </template>
@@ -14,3 +14,8 @@ export default {
 
 }
 </script>
+<style lang='scss'>
+.txt{
+      color:  #364FCC;
+}
+</style>
