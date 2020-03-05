@@ -14,7 +14,11 @@
 
         <div class="form-group">
           <div>
-            <div class="alert alert-danger" role="alert"></div>
+            <alerts-component
+            v-if="showError"
+            :message="errorMessage"
+            :code="errorCode"
+            ></alerts-component>
             <input
                 type="email"
                 class="cuadroTexto"
@@ -57,10 +61,17 @@
 
 <script lang='js'>
 import Auth from '@/config/auth.js'
+import AlertsComponent from './helpers/Alerts'
 export default {
   name: 'loginForm',
+  components: {
+    AlertsComponent //* Lo registramos como componente.
+  },
   data () {
     return {
+      showError: false,
+      errorMessage: '',
+      errorCode: '',
       user: {
         name: '',
         email: 'paco@gmail.com',
@@ -79,6 +90,9 @@ export default {
       Auth.login(this.user).catch(error => {
         console.log('estamos en el login')
         console.log('esto es un error:' + error.code + error.message)
+        this.showError = true
+        this.errorMessage = error.message
+        this.errorCode = error.code
       }
       )
       /* setTimeout(() => {

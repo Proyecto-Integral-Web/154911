@@ -4,6 +4,16 @@ import router from '@/router'
 // import fireApp from './_firebase'
 
 export default {
+  saveChange (data) {
+    var user = fireApp.auth().currentUser
+    if (user) {
+      user.updateProfile({ displayName: data.nombre }).then(result => {
+        console.log('nombre agregado')
+      }).catch(err =>
+        console.log(err)
+      )
+    }
+  },
   logOut () {
     fireApp.auth().signOut()
 

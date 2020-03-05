@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import SingUp from '../views/SingUp.vue'
 import Profile from '../views/Profile.vue'
+import 'animate.css'
 
 Vue.use(VueRouter)
 

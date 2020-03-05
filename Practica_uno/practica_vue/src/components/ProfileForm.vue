@@ -12,7 +12,6 @@
         id="form1"
         class="outlinenone "
         v-model="user.nombre"
-        readonly
       ></code>
     </div>
     <div class="">
@@ -22,7 +21,6 @@
         id="form1"
         class="outlinenone "
         v-model="user.email"
-        readonly
       ></code>
     </div>
     <div class="">
@@ -32,14 +30,20 @@
         id="form1"
         class="outlinenone "
         v-model="user.telefono"
-        readonly
       ></code>
     </div>
+    <div class="botoncitos">
+    <button
+    type="button"
+    class="btn btn-info boton"
+    @click="update"
+    >Guardar Cambios</button>
     <button
     type="button"
     class="btn btn-danger boton"
     @click="logOut"
     >Cerrar Sesion</button>
+    </div>
     </section>
 
     </div>
@@ -70,7 +74,11 @@ export default {
   methods: {
     logOut () {
       Auth.logOut()
+    },
+    update () {
+      Auth.aveChange(this.user)
     }
+
   }
 }
 </script>
@@ -114,5 +122,9 @@ export default {
   }
   .boton{
     margin-top: 5vh;
+    margin-left: 3vw;
+  }
+  .botoncitos{
+    display: grid;
   }
 </style>
