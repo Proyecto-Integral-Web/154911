@@ -5,6 +5,7 @@ import Login from '../views/Login.vue'
 import SingUp from '../views/SingUp.vue'
 import Profile from '../views/Profile.vue'
 import 'animate.css'
+import Partida from '../views/juego/partidita.vue'
 
 Vue.use(VueRouter)
 
@@ -50,6 +51,11 @@ const routes = [
     meta: {
       auth: true
     }
+  },
+  {
+    path: '/juego/:no_partida',
+    name: 'partida',
+    component: Partida
   }
 ]
 

@@ -4,7 +4,6 @@
       class="alert "
       :class="tipo"
     >
-      {{message}}
     </div>
   </section>
 </template>

@@ -65,7 +65,7 @@ import AlertsComponent from './helpers/Alerts'
 export default {
   name: 'loginForm',
   components: {
-    AlertsComponent //* Lo registramos como componente.
+    AlertsComponent
   },
   data () {
     return {
