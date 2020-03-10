@@ -4,6 +4,7 @@ import './registerServiceWorker'
 import router from './router'
 import store from './store'
 import Auth from './config/auth'
+import { firestorePlugin } from 'vuefire'
 
 import 'bootstrap/scss/bootstrap.scss'
 
