@@ -47,5 +47,8 @@ export default {
     }).catch((err) => {
       return Promise.reject(err)
     })
+  },
+  getUser () {
+    return fireApp.auth().currentUser
   }
 }

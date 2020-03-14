@@ -4,11 +4,14 @@ import './registerServiceWorker'
 import router from './router'
 import store from './store'
 import Auth from './config/auth'
+import 'animate.css'
 import { firestorePlugin } from 'vuefire'
 
 import 'bootstrap/scss/bootstrap.scss'
 
+Vue.use(firestorePlugin)
 Vue.config.productionTip = false
+
 router.beforeEach((to, from, next) => {
   if (to.meta.auth) {
     let user = Auth.checkUser()
