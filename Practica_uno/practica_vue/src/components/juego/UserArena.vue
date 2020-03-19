@@ -12,7 +12,10 @@
       <div class="row">
         <div class="col-6 mx-auto opciones">
           <div class="row">
-            <div class="col col-sm-4 opcion p-3" v-for="(option,key) in options" :key="key" @click="select(key)">
+            <div class="col col-sm-4 opcion p-3"
+            v-for="(option,key) in options"
+            :key="key"
+            @click="select(key)">
               {{option}}
             </div>
           </div>
@@ -36,7 +39,7 @@ export default {
   },
   methods: {
     select (key) {
-      this.$emit('opcion', key)
+      this.$emit('opcion', [key, this.displayName])
     }
   }
 }

@@ -13,11 +13,20 @@
       </div>
         <div class="row">
           <div class="col col-sm-6">
-            <user-arena @opcion="partida.participantes[0] === user.uid?getOpcion:''" :userOpcion="partida.usuario_1" :displayName="!user.displayName?partida.names[0]!== user.displayName?partida.names[0]:'':user.displayName"></user-arena>
+            <user-arena
+            @opcion="getOpcion" :userOpcion="partida.usuario_1"
+            :displayName="!user.displayName?partida.names[0]!== user.displayName?partida.names[0]:'':user.displayName"></user-arena>
           </div>
           <div class="col col-sm-6">
-            <button v-if="!partida.names[1]" class="btn btn-outline-primary" @click="retar">👻</button>
-            <user-arena :displayName="!partida.names[1]?'Esperando Retador':partida.names[1]" :userOpcion="partida.usuario_1!=''?partida.usuario_2:''" @opcion="partida.participantes[1] === user.uid?getOpcion:''"></user-arena>
+            <button
+            v-if="!partida.names[1]"
+            class="btn btn-outline-primary"
+            @click="retar">
+            👻
+            </button>
+            <user-arena
+            :displayName="!partida.names[1]?'Esperando Retador':partida.names[1]"
+            :userOpcion="partida.usuario_1!=''?partida.usuario_2:''" @opcion="getOpcion"></user-arena>
           </div>
         </div>
         {{partida}}
@@ -40,6 +49,11 @@ export default {
     next(vm => {
       // vm.obtenerPartida(to.params.no_partida)
       vm.user = Auth.getUser()
+
+      // to.params.no_partida = vm.user.email
+
+      vm.crearPartida()
+
       vm.$bind('partida', partida.doc(to.params.no_partida))
     })
   },
@@ -72,8 +86,8 @@ export default {
 
       let uid = this.user.uid
 
-      FireApp.firestore().collection('juego-1').add({
-        participante: [uid],
+      FireApp.firestore().collection('juego-1').doc(this.$route.params.no_partida).set({
+        participantes: [uid],
         names: [this.user.displayName == null ? 'Usuario 1' : this.user.displayName],
         usuario_1: '',
         usuario_2: '',
@@ -95,14 +109,20 @@ export default {
     getOpcion (opcion) {
       let participantes = this.partida.participantes
       console.log(participantes.indexOf(this.user.uid))
+
+      if (this.partida.names[participantes.indexOf(this.user.uid)] !== opcion[1]) {
+        return 0
+      }
+      console.log(opcion)
+
       let data = {}
       if (participantes.indexOf(this.user.uid) === 0) {
         data = {
-          'usuario_1': opcion
+          'usuario_1': opcion[0]
         }
       } else {
         data = {
-          'usuario_2': opcion
+          'usuario_2': opcion[0]
         }
       }
       FireApp.firestore().collection('juego-1').doc(this.$route.params.no_partida).update(data)

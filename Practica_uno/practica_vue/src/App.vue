@@ -4,7 +4,7 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/profile">Profile</router-link>|
-      <router-link to="/partida">partida</router-link>
+      <router-link to="/juego-1/partida-1">Partida</router-link>
     </div>
     <router-view/>
   </div>
