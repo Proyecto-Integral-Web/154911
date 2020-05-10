@@ -14,18 +14,19 @@ Vue.config.productionTip = false
 
 router.beforeEach((to, from, next) => {
   if (to.meta.auth) {
+    console.log('Necesitas permisos para entrar')
     let user = Auth.checkUser()
+
     console.log(user)
+
     if (user == null) {
-      next({ name: 'Login' })
-      console.log('error en alguno de los')
+      next({
+        name: 'Login'
+      })
+
+      return null
     }
 
-    /* if (Auth.checkUser()) {
-      next()
-      return
-    } */
-    console.log('usuario logeado: ' + user.email)
     next()
   }
   next()
@@ -33,5 +34,5 @@ router.beforeEach((to, from, next) => {
 new Vue({
   router,
   store,
-  render: (h) => h(App)
+  render: h => h(App)
 }).$mount('#app')

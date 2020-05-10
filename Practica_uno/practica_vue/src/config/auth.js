@@ -7,11 +7,12 @@ export default {
   saveChange (data) {
     var user = fireApp.auth().currentUser
     if (user) {
-      user.updateProfile({ displayName: data.nombre }).then(result => {
-        console.log('nombre agregado')
-      }).catch(err =>
-        console.log(err)
-      )
+      user
+        .updateProfile({ displayName: data.nombre })
+        .then(result => {
+          console.log('nombre agregado')
+        })
+        .catch(err => console.log(err))
     }
   },
   logOut () {
@@ -27,26 +28,39 @@ export default {
     return null
   },
   singUp (data) {
-    if (data.nombre === '' || data.email === '' || data.password === '') { return alert('todos los datos son obligatorio,') }
-    fireApp.auth().createUserWithEmailAndPassword(data.email, data.password).then((result) => {
-      let newUser = {
-        displayName: result.data.nombre,
-        email: result.data.email,
-        uid: result.data.id
-      }
-      fireApp.auth().updateCurrentUser(newUser).catch(err => console.log(err))
-    }).catch((err) => {
-      console.table(err)
-    })
+    if (data.nombre === '' || data.email === '' || data.password === '') {
+      return alert('todos los datos son obligatorio,')
+    }
+    fireApp
+      .auth()
+      .createUserWithEmailAndPassword(data.email, data.password)
+      .then(result => {
+        let newUser = {
+          displayName: result.data.nombre,
+          email: result.data.email,
+          uid: result.data.id
+        }
+        fireApp
+          .auth()
+          .updateCurrentUser(newUser)
+          .catch(err => console.log(err))
+      })
+      .catch(err => {
+        console.table(err)
+      })
     console.log(data)
   },
   async login (data) {
-    await fireApp.auth().signInWithEmailAndPassword(data.email, data.password).then((result) => {
-      // console.log(result)
-      router.push({ name: 'profile' })
-    }).catch((err) => {
-      return Promise.reject(err)
-    })
+    await fireApp
+      .auth()
+      .signInWithEmailAndPassword(data.email, data.password)
+      .then(result => {
+        console.log(result)
+        router.push('about')
+      })
+      .catch(err => {
+        return Promise.reject(err)
+      })
   },
   getUser () {
     return fireApp.auth().currentUser

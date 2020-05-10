@@ -1,5 +1,5 @@
 <template>
-<section>
+  <section>
     <div class="row">
       <div class="col">
         <button class="btn btn-success mb-2" @click="crearPartida">Nueva Partida</button>
@@ -11,28 +11,26 @@
           <h3 class="text-center">{{$route.params.no_partida.replace('-','')}}</h3>
         </div>
       </div>
-        <div class="row">
-          <div class="col col-sm-6">
-            <user-arena
-            @opcion="getOpcion" :userOpcion="partida.usuario_1"
-            :displayName="!user.displayName?partida.names[0]!== user.displayName?partida.names[0]:'':user.displayName"></user-arena>
-          </div>
-          <div class="col col-sm-6">
-            <button
-            v-if="!partida.names[1]"
-            class="btn btn-outline-primary"
-            @click="retar">
-            👻
-            </button>
-            <user-arena
-            :displayName="!partida.names[1]?'Esperando Retador':partida.names[1]"
-            :userOpcion="partida.usuario_1!=''?partida.usuario_2:''" @opcion="getOpcion"></user-arena>
-          </div>
+      <div class="row">
+        <div class="col col-sm-6">
+          <user-arena
+            @opcion="getOpcion"
+            :userOpcion="partida.usuario_1"
+            :displayName="!user.displayName?partida.names[0]!== user.displayName?partida.names[0]:'':user.displayName"
+          ></user-arena>
         </div>
-        {{partida}}
+        <div class="col col-sm-6">
+          <button v-if="!partida.names[1]" class="btn btn-outline-primary" @click="retar">👻</button>
+          <user-arena
+            :displayName="!partida.names[1]?'Esperando Retador':partida.names[1]"
+            :userOpcion="partida.usuario_1!=''?partida.usuario_2:''"
+            @opcion="getOpcion"
+          ></user-arena>
+        </div>
+      </div>
+      {{partida}}
     </div>
-</section>
-
+  </section>
 </template>
 <script lang='js'>
 import UserArena from '@/components/juego/UserArena'
@@ -97,6 +95,7 @@ export default {
     obtenerPartida (partida) {
       FireApp.firestore().collection('juego-1').doc(partida).get().then((result) => {
         console.log(result.data())
+        console.log(partida)
       })
     },
     retar () {
@@ -131,7 +130,7 @@ export default {
 }
 </script>
 <style lang="scss">
-  .partida {
-    background: palevioletred;
-  }
+.partida {
+  background: palevioletred;
+}
 </style>
