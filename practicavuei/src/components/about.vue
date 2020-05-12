@@ -1,15 +1,14 @@
 <template>
-  <section class="contBloque">
+  <section class="contBloque contLimite">
     <header>
-      <div class="logo"></div>
-    </header>
-    <section class="col ">
-      <h3>Nombre: {{usuario.displayName}}</h3>
-
       <div class="fotoPerfil"><img
           :src="usuario.photoURL ||'../assets/logo.png'"
           class="fotoPerfil"
         /></div>
+      <div class="logo"></div>
+    </header>
+    <section class="col ">
+      <h3 class="colorFuente">Nombre: {{usuario.displayName}}</h3>
     </section>
   </section>
 </template>
@@ -46,5 +45,5 @@ export default {
   margin-top: 10px;
 }
 
-@import "./recursos/css/master.scss"
+@import "./recursos/css/master.scss";
 </style>

@@ -1,11 +1,24 @@
 <template>
-  <section class="cont-login-form" :class="hasErrors? 'animated tada': ''">
+  <section
+    class="cont-login-form"
+    :class="hasErrors? 'animated tada': ''"
+  >
     <section class="registro-form">
-      <AlertsComponent :error="hasErrors" :message="errMessage"></AlertsComponent>
+      <AlertsComponent
+        :error="hasErrors"
+        :message="errMessage"
+      ></AlertsComponent>
       <h3>Registrarse</h3>
       <br />
       <div class="linea"></div>
       <br />
+      <p class="txt-registro">Nombre</p>
+      <input
+        type="email"
+        placeholder="Juanito Gonzalez"
+        class="input-registro"
+        v-model="usuario.nombre"
+      />
       <div class="cont-form-input-registro">
         <p class="txt-registro">Correo</p>
         <input
@@ -25,7 +38,12 @@
           @keypress.enter="signUp"
         />
       </div>
-      <input type="button" value="Registrarse" class="btn-registro" @click="signUp" />
+      <input
+        type="button"
+        value="Registrarse"
+        class="btn-registro"
+        @click="signUp"
+      />
       <br />
     </section>
   </section>

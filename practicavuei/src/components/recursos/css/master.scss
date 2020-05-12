@@ -14,10 +14,17 @@ body {
 
 .contBloque {
   border-radius: 15px;
-  background-color: #222 !important;
+  border-width: 7px;
+  border-style: solid;
+  border-color: #631f5c;
+  background-color: rgba(255, 255, 255, 0.6) !important;
   color: whitesmoke !important;
-  margin: 5%;
+  //margin: 5%;
   height: auto;
+}
+
+.colorFuente{
+  color: #631f5c;
 }
 
 .contenEntrada {
@@ -30,4 +37,8 @@ body {
   margin: auto;
   margin-bottom: 30px;
   margin-top: 10px;
+}
+
+.contLimite{
+  max-width: 600px;
 }
