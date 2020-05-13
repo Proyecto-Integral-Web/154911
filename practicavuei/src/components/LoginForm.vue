@@ -157,7 +157,8 @@ html {
 }
 input[type="text"],
 [type="email"],
-[type="password"] {
+[type="password"],
+[type="number"] {
   background: none;
   border: none;
   border-bottom: solid 2px #474544;
@@ -170,12 +171,20 @@ input[type="text"],
   width: 100%;
   box-sizing: border-box;
   transition: all 0.3s;
+  text-align: center;
 }
 input[type="text"]:focus,
 [type="email"]:focus,
-[type="password"]:focus {
+[type="password"]:focus,
+[type="number"]:focus {
   outline: none;
   padding: 0 0 0.875em 0;
   border-bottom: solid 2px #e54669;
+  background-color: white;
+  border-radius: 5vh;
+  border: none;
+  box-shadow: 0 0 3px #631f5c, 0 0 5px #e54669;
+  text-align: center;
+  align-items: center;
 }
 </style>

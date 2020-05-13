@@ -1,5 +1,5 @@
 <template>
-  <section class="home p-5">
+  <section>
     <UserArena
       v-if="!names"
       @terminar="finalizarTurno"
@@ -9,7 +9,6 @@
     ></UserArena>
     <input
       type="button"
-      class="btn btn-outline-primary"
       value="👾"
       @click="retar"
       v-if="!partida.names[1] && (partida.retador != this.user.uid)"
@@ -75,6 +74,7 @@ export default {
 
   mounted () {
     this.user = Auth.getUser()
+    console.log(this.user)
   },
 
   methods: {
@@ -97,6 +97,7 @@ export default {
           this.$route.params.no_partida = res.id
           this.$bind('partida', partidaBD.doc(res.id))
         })
+      console.log(partida)
 
       return partida
     },

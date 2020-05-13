@@ -1,18 +1,15 @@
 <template>
   <div class="home p-3">
-
     <div class="row">
-
       <div class="col">
         <about></about>
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <viewProfile></viewProfile>
+        <viewProfile id="editar"></viewProfile>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -28,3 +25,8 @@ export default {
   }
 }
 </script>
+<style land="scss">
+#editar {
+  display: none;
+}
+</style>

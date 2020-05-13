@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "Practica_uno/practica_vue/dist",
+    "public": "practicavuei/dist",
     "ignore": [
       "firebase.json",
       "**/.*",
