@@ -1,9 +1,16 @@
 .partida {
-    border-radius: 25px;
+    border-radius: 15px;
+  border-width: 7px;
+  border-style: solid;
+  border-color: #631f5c;
   
-    color: #AAA;
-  
-    background-color: rgba(25, 25, 25, 0.9) !important;
+   background-color: rgba(255, 255, 255, 0.6) !important;
+
+    max-width: 600px;
+    height:  auto;
+
+    margin-bottom: 15px;
+    padding-bottom: 15px;
   }
   
   .contBloque {

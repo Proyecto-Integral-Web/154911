@@ -22,14 +22,6 @@ export default {
 </script>
 
 <style lang="scss">
-.partida {
-  border-radius: 25px;
-
-  color: #AAA;
-
-  background-color: rgba(25, 25, 25, 0.9) !important;
-}
-
 .contBloque {
   width: 100%;
   height: 500px;
@@ -40,11 +32,11 @@ export default {
 }
 
 .opciones {
-  background: grey;
+  background: rgb(133, 80, 194);
   .opcion {
     cursor: pointer;
     &:hover {
-      background: darkgray;
+      background: rgb(164, 121, 219);
     }
   }
 }
