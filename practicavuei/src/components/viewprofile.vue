@@ -25,9 +25,9 @@
           v-model="phoneNumber"
         />
       </div>
-      <div class="cont-btn">
-        <input type="button" value="Actualizar" class="btn-login" @click="updateData" />
-        <input type="button" value="Cancelar" class="btn-login" @click="cancelar " />
+      <div class="cont-btn-2">
+        <input type="button" value="Actualizar" class="btn-login-1" @click="updateData" />
+        <input type="button" value="Cancelar" class="btn-login-1" @click="cancelar " />
       </div>
     </section>
 
@@ -80,5 +80,24 @@ export default {
 }
 .editar {
   display: none;
+}
+.cont-btn-2 {
+  display: grid;
+  margin: auto;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 1vh;
+}
+.btn-login-1 {
+  background-color: #631f5c;
+  width: 100%;
+  border: none;
+  color: white;
+  border-radius: 1vh;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: auto;
+  padding: 15%;
 }
 </style>

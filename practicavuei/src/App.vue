@@ -1,11 +1,9 @@
 <template>
 <html>
+  <title>Plta</title>
   <div id="app">
     <div id="nav">
       <router-link class="bar" to="/">Home</router-link>
-      <router-link class="bar" :to="{name: 'about'}">About</router-link>
-      <router-link class="bar" :to="{name: 'profile'}">Perfil</router-link>
-      <router-link class="bar" to="/sala/CrearPartida">Crear</router-link>
       <router-link class="bar" to="/partidas/abiertas">Salas abiertas</router-link>
       <router-link class="bar" to="/partidas/misSalas">Mis partidas</router-link>
     </div>

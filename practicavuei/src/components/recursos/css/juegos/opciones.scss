@@ -1,33 +1,48 @@
 .partida {
-    border-radius: 15px;
+  border-radius: 15px;
   border-width: 7px;
   border-style: solid;
   border-color: #631f5c;
-  
-   background-color: rgba(255, 255, 255, 0.6) !important;
 
-    max-width: 600px;
-    height:  auto;
+  background-color: rgba(255, 255, 255, 0.6) !important;
 
-    margin-bottom: 15px;
-    padding-bottom: 15px;
-  }
-  
-  .contBloque {
-    width: 100%;
-    height: 500px;
-  
-    border-radius: 50px;
-  
-    background-color: gray;
-  }
-  
-  .opciones {
-    background: grey;
-    .opcion {
-      cursor: pointer;
-      &:hover {
-        background: darkgray;
-      }
+  max-width: 600px;
+  height: 50%;
+
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+}
+
+.contBloque {
+  width: 100%;
+  height: 500px;
+
+  border-radius: 50px;
+
+  background-color: gray;
+}
+
+.opciones {
+  background: grey;
+  .opcion {
+    cursor: pointer;
+    &:hover {
+      background: darkgray;
     }
   }
+}
+.opcionUs {
+  width: 5vh;
+}
+.opcionUs:hover {
+  transform: scale(2);
+  transition: 300ms ease-in-out 0s;
+}
+.opcionUsGR {
+  width: 10vh;
+}
+.cont-opcion {
+  background-color: rgba($color: white, $alpha: 0.6);
+  border-radius: 5vh;
+  margin-top: 3vh;
+}

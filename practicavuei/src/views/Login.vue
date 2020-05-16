@@ -22,7 +22,8 @@ export default {
 html {
   background-image: url("../assets/Page-Files/background2.jpg");
   background-repeat: no-repeat;
-  background-size: auto;
+  background-size: cover;
+  background-position: top; /* Center the image */
 }
 * {
   margin: auto;

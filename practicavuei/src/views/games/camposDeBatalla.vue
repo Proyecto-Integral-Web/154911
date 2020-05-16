@@ -1,41 +1,54 @@
 <template>
   <div>
-    <input
-      type="button"
-      @click="retar"
-      value="GG IZ"
-    />
-
-    <div
-      v-for="partida in coleccionDePartidas"
-      :key="partida.id"
-    >
-      <Arena :partida="partida"></Arena>
+    <div class="about">
+      <div class="home p-3">
+        <div class="row">
+          <div class="col">
+            <about></about>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <viewProfile id="editar"></viewProfile>
+          </div>
+        </div>
+      </div>
+      <div class="cont-btn-1">
+        <router-link type="button" class="btn-login" to="/sala/CrearPartida">Crear</router-link>
+        <input type="button" value="Cerrrar Sessión" @click="logOut" class="btn btn-danger" />
+      </div>
     </div>
-    <div
-      v-for="partida in coleccionDePartidasSecundaria"
-      :key="partida.id"
-    >
-      <Arena :partida="partida"></Arena>
+    <div>
+      <div v-for="partida in coleccionDePartidas" :key="partida.id">
+        <Arena :partida="partida"></Arena>
+      </div>
+      <div v-for="partida in coleccionDePartidasSecundaria" :key="partida.id">
+        <Arena :partida="partida"></Arena>
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="js">
-// import UserArena from '@/components/games/juegoPiedras'
+// aqui importamos los componenetes que usaremos
+import viewProfile from '@/components/viewprofile'
+import about from '@/components/about'
 import FireApp from '@/config/_firebase.js'
 import Auth from '@/config/auth'
 import Arena from '@/components/games/miniaturaJuegoPiedras'
 
+// creamos una variable que contrendra la referencia nuestra coleccion
 const partidas = FireApp.firestore().collection('juego1')
 
 export default {
   name: 'sala1',
   props: ['user_opcion'],
   components: {
-    Arena
+    Arena,
+    viewProfile,
+    about
   },
-
+  // en data ponemos los datos que manejaremos en el proyecto, las partidas, usuarios y demas
   data () {
     return {
       partida: {},
@@ -45,7 +58,9 @@ export default {
       user: {}
     }
   },
-
+  // aqui verificamos que el usuario haya iniciado sesion y pueda acceder
+  // a las pantallas de mis partidas y salas abiertas, dependiendo de donde estas
+  // te mostrara las partidas que has creado o las partidad a las que se puede unir aun
   beforeRouteEnter (to, from, next) {
     // console.log(partida)
     next(vm => {
@@ -65,7 +80,7 @@ export default {
       // vm.$bind('coleccionDePartidas', partidas.where('abierta', '==', true))
     })
   },
-
+  // guardamos kla referencia de partida con la coleccion
   firestore: {
     partida: FireApp.firestore().collection('juego1')
   },
@@ -101,6 +116,9 @@ export default {
 
     retar () {
       this.user = Auth.getUser()
+    },
+    logOut () {
+      return Auth.logOut()
     }
   }
 }
@@ -110,8 +128,30 @@ export default {
 body {
   background-size: 100%;
 }
-
+.back {
+  background-color: aliceblue;
+}
 .partida {
   background-color: whitesmoke;
+}
+
+#editar {
+  display: none;
+}
+.about {
+  float: left;
+}
+.cont-btn-1 {
+  display: grid;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+  grid-template-columns: 1fr;
+  grid-row-gap: 1vh;
+  margin-left: 3vh;
+  margin-right: 3vh;
+}
+.btn-login-1:hover {
+  background-color: white;
+  color: #631f5c;
 }
 </style>

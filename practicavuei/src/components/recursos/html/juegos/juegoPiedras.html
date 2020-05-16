@@ -1,33 +1,40 @@
-  <section class="partida">
-    <div class="container-fluid pb-5">
-      <div class="row">
-        <h3 class="mx-auto">{{displayName}}</h3>
+<section class="partida">
+  <div class="container-fluid pb-5">
+    <div class="row">
+      <h3 class="mx-auto">{{displayName}}</h3>
+    </div>
+    <br />
+    <div class="row">
+      <div class="col-3 mx-auto">
+        <img class="opcionUsGR" :src="options[userOpcion]" />
       </div>
-      <div class="row">
-        <div class="col-3 mx-auto">
-          <h1>{{options[userOpcion]}}</h1>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-6 mx-auto opciones">
-          <div class="row">
-            <div
-              class="col col-sm-4 opcion p-3"
-              v-for="(option, key) in options"
-              :key="key"
-              @click="select(key)"
-            >
-            {{option}}
-            </div>
+    </div>
+    <div class="row">
+      <div class="col-6 mx-auto cont-opcion">
+        <div class="row">
+          <div
+            class="col col-sm-4 p-3 "
+            v-for="(option, key) in options"
+            :key="key"
+            @click="select(key)"
+          >
+            <img class="opcionUs" :src="option" />
           </div>
         </div>
       </div>
-      <br />
-      <br />
-      <div class="row">
-        <div class="col-6 mx-auto">
-          <input type="button" class="btn" @click="terminar" value="Terminar turno" :class="turnoTerminado ? 'btn-danger': 'btn-success'"/>
-        </div>
+    </div>
+    <br />
+    <br />
+    <div class="row">
+      <div class="col-6 mx-auto">
+        <input
+          type="button"
+          class="btn"
+          @click="terminar"
+          value="Terminar turno"
+          :class="turnoTerminado ? 'btn-danger': 'btn-success'"
+        />
       </div>
     </div>
-  </section>
+  </div>
+</section>

@@ -1,5 +1,4 @@
-<template src="../recursos/html/juegos/juegoPiedras.html">
-</template>
+<template src="../recursos/html/juegos/juegoPiedras.html"></template>
 
 <script lang="js">
 export default {
@@ -10,9 +9,9 @@ export default {
   data () {
     return {
       options: {
-        t: '✂️',
-        pp: '🧻',
-        p: '💎'
+        t: 'https://raw.githubusercontent.com/Proyecto-Integral-Web/154911/master/practicavuei/src/assets/Page-Files/tijera.png',
+        pp: 'https://raw.githubusercontent.com/Proyecto-Integral-Web/154911/master/practicavuei/src/assets/Page-Files/papel.png',
+        p: 'https://raw.githubusercontent.com/Proyecto-Integral-Web/154911/master/practicavuei/src/assets/Page-Files/piedra.png'
       }
     }
   },

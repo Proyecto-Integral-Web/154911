@@ -8,8 +8,9 @@
       :displayName="(partida.retador === this.user.uid) ? this.user.displayName: partida.names[0]"
     ></UserArena>
     <input
+      class="btn-login bt2"
       type="button"
-      value="👾"
+      value="Retar"
       @click="retar"
       v-if="!partida.names[1] && (partida.retador != this.user.uid)"
     />
@@ -97,7 +98,6 @@ export default {
           this.$route.params.no_partida = res.id
           this.$bind('partida', partidaBD.doc(res.id))
         })
-      console.log(partida)
 
       return partida
     },
@@ -148,7 +148,9 @@ export default {
 body {
   background-size: 100%;
 }
-
+.bt2 {
+  width: 20vh;
+}
 .partida {
   background-color: whitesmoke;
 }
